@@ -15,7 +15,7 @@ if (isset($_POST['signupBtn'])){
 
   foreach($required_fields as $name_of_field){
     if (!isset($_POST[$name_of_field]) || $_POST[$name_of_field] == NULL){
-      $form_errors[] = $name_of_field;
+      $form_errors[] = $name_of_field ." is a required";
     }
   }
 // check if array is EmptyIterator
@@ -30,7 +30,7 @@ if (isset($_POST['signupBtn'])){
 
       try {
         $sqlInsert = "INSERT INTO users (username, email, password, join_date)
-        VALUES (:username, :password, :email, now())";
+        VALUES (:username, :email, :password, now())";
 
         //sanitize Data
         $statement = $db->prepare($sqlInsert);
@@ -68,8 +68,6 @@ if (isset($_POST['signupBtn'])){
 
 }}
 
-
-
  ?>
 
 
@@ -92,7 +90,7 @@ if (isset($_POST['signupBtn'])){
       <td>Username:</td><td><input type="text" name="username" value=""></td>
     </tr>
     <tr>
-      <td>Password:</td><td><input type="text" name="password" value=""></td>
+      <td>Password:</td><td><input type="password" name="password" value=""></td>
     </tr>
     <tr>
       <td></td><td><input style ="float : right" type="submit" name="signupBtn" value="Signup"></td>
