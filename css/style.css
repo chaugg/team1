@@ -3,7 +3,9 @@
 *::after {
   box-sizing: inherit;
 }
-
+.header-description{
+  margin: 0 auto !important;
+}
 html {
   box-sizing: border-box;
   line-height: 1.4;
@@ -67,6 +69,11 @@ img {
 
 p {
   margin: 1.4rem 0;
+  margin: auto !important;
+
+}
+p.userbar{
+text-align: center !important;
 }
 
 small,
