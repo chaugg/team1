@@ -45,7 +45,7 @@ if(isset($_POST['signupBtn'])){
     <title>Register Page</title>
 </head>
 <body>
-<h2>User Authentication System </h2><hr>
+<h2>User Registration </h2><hr>
 
 <h3>Registration Form</h3>
 

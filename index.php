@@ -67,13 +67,7 @@ if(isset($_POST['loginBtn'])){
 
 
 </head>
-<div class="userbar">
-  <?php if(!isset($_SESSION['username'])): ?>
-    <P class="userbar">You are currently not signin <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </P>
-  <?php else: ?>
-    <p class="userbar">Welcome back <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a> </p>
-  <?php endif ?>
-</div>
+
 
 <body>
   <header class="site-header" role="banner">
@@ -92,7 +86,7 @@ if(isset($_POST['loginBtn'])){
             <ul class="inline-list padded-list">
                     <li><a href="#" class="ion-social-octocat"> Wiki</a></li>
 
-                    <li><a href="../form/register.php" class="ion-ios-paw"> Register</a></li>
+                    <li><a href="signup.php" class="ion-ios-paw"> Register</a></li>
 
                     <li><a href="../form/login.php" class="icon ion-android-exit button button-red button-login toggle-hide ">Sign In</a></li>
             </ul>
