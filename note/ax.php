@@ -1,5 +1,5 @@
    <style type="text/css">
-     
+
      @font-face {
   font-family: "JF Flat Regular";
   src: url("http://f9ir.github.io/acc/acc/font/JF-Flat-regular.eot");
@@ -125,9 +125,9 @@ body {
    </section>
 
    <script src="jquery.min.js"></script>
-  
+
    <script type="text/javascript">
-     
+
      (function ($) {
     'use strict';
     $('.item').on("click", function () {

@@ -36,7 +36,8 @@ include_once 'resource/session.php';
   <?php if(!isset($_SESSION['username'])): ?>
     <P class="userbar">You are currently not signin <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </P>
   <?php else: ?>
-    <p class="userbar">Welcome back <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a> </p>
+    <p class="userbar">Welcome back<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
+    <a href="note/ax.php"> Message</a> </p>
   <?php endif ?>
 
 </div>
@@ -49,7 +50,7 @@ include_once 'resource/session.php';
         <div class="header-image-text">
             <h2 class="header-title">Learn with Us</h2>
             <p class="header-description">Learn Nihongo in your luch</p>
-            <a class="button button-yellow" href="../main/index.php">Started</a><a class="button button-blue" href="#">Get help</a>
+            <a class="button button-yellow" href="../main/index.php">Started</a><a class="button button-blue" href="goal.php">View statics</a>
         </div>
     </div>
 
@@ -102,6 +103,7 @@ include_once 'resource/session.php';
 
 </main>
 
+
 <footer class="site-footer" role="contentinfo">
     <ul class="inline-list">
         <li><a href="" class="icon ion-speakerphone">Blog</a></li>
@@ -115,38 +117,7 @@ include_once 'resource/session.php';
 </footer>
 
 <!-- Login -->
-<div id="modal-bg" class="login-modal-bg toggle-hide"></div>
-<div id="login" class="login-container">
-    <div class="col half">
-        <h3>Sign in with email</h3>
-        <?php if(isset($result)) echo $result; ?>
-        <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-        <form method="post" action="">
-            <div class="input-group">
-                <input id="email" type="text" placeholder="Username" name="username">
-                <label class="icon-label" for="email"><i class="icon ion-email"></i></label>
-            </div>
 
-            <div class="input-group">
-                <input id="password" type="password" placeholder="Password" name="password">
-                <label class="icon-label" for="password"><i class="icon ion-key"></i></label>
-            </div>
-
-            <input type="submit" value="Sign In" class="button button-red full-width" name="loginBtn">
-
-            <p class="small"><a href="forgot_password.php">Forgot your password?</a>
-            <br><a href="signup.php">Sign up using your email address</a></p>
-        </form>
-    </div>
-    <div class="col half highlighted-bg">
-        <button class="button full-width button-twitter"><i class="icon ion-social-twitter"></i>Sign in with Twitter</button>
-        <button class="button full-width button-github"><i class="icon ion-social-github"></i>Sign in with Github</button>
-        <button class="button full-width button-facebook"><i class="icon ion-social-facebook"></i>Sign in with Facebook</button>
-        <button class="button full-width button-google"><i class="icon ion-social-google"></i>Sign in with Google</button>
-        <button class="button full-width button-linkedin"><i class="icon ion-social-linkedin"></i>Sign in with LinkedIn</button>
-    </div>
-    <button class="button button-red close-button toggle-hide"><i class="icon ion-close-circled"></i> Close</button>
-</div>
 
     <script src="js/index.js"></script>
 
