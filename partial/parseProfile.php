@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <script src="js/sweetalert.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/sweetalert.css">
+  </head>
+  <body>
+  </body>
+</html>
 <?php
 
 include_once 'resource/Database.php';
@@ -44,9 +54,9 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
       $statement->execute(array(':username' => $username, ':email' => $email, ':id' => $hidden_id));
 
       if($statement->rowCount() == 1){
-        // $result = "<script type=\"text/javascript\">
-        // swal(\"Updated!\", \"Profile update successfully.\",\"success\");</script>";
-        echo "Success";
+        $result = "<script type=\"text/javascript\">
+        swal(\"Updated!\", \"Profile update successfully.\",\"success\");</script>";
+        // echo "Success";
       }
     } catch (PDOException $ex) {
 
