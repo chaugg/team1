@@ -1,6 +1,7 @@
 <?php
 include_once 'resource/Database.php';
 include_once 'resource/utilities.php';
+include_once 'resource/send-email.php';
 
 if(isset($_POST['signupBtn'])){
     $form_errors = array();
@@ -28,7 +29,30 @@ if(isset($_POST['signupBtn'])){
             $statement = $db->prepare($sqlInsert);
             $statement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
             if($statement->rowCount() == 1){
+
                 $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Registration Successful</p>";
+                $user_id = $db->lastInsertID();
+                $encode_id = base64_encode("encodeuserid$user_id");
+                $mail_body = '<html>
+                <body style="background-color:#CCCCCC; color:#000; font-family: Arial, Helvetica, sans-serif;
+                                    line-height:1.8em;">
+                <h2>Team1</h2>
+                <p>Dear '.$username.'<br><br>Thank you for registering, please click on the link below to
+                	confirm your email address</p>
+                <p><a href="http://localhost/team1/activate.php?id='.$encode_id.'"> Confirm Email</a></p>
+                <p><strong>&copy;2017 Team1</strong></p>
+                </body>
+                </html>';
+                $mail->addAddress($email, $username);
+                $mail->Subject = "Message sent!";
+                $mail->Body = $mail_body;
+
+                if (!$mail->Send()) {
+                  echo "Sent email failed!";
+                }
+                else{
+                  echo "Sent email failed";
+                }
             }
         }catch (PDOException $ex){
           // $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> .$ex->getMessage()</p>";
