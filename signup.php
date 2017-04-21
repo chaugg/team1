@@ -69,7 +69,27 @@ if(isset($_POST['signupBtn'])){
     }
 
 }
+//activate
 
+else if(isset($_GET['id'])) {
+$encoded_id = $_GET['id'];
+$decode_id = base64_decode($encoded_id);
+$user_id_array = explode("encodeuserid", $decode_id);
+$id = $user_id_array[1];
+
+$sql = "UPDATE users SET activated =:activated WHERE id=:id AND activated='0'";
+
+$statement = $db->prepare($sql);
+$statement->execute(array(':activated' => "1", ':id' => $id));
+
+if ($statement->rowCount() == 1) {
+$result = '<h2>Email Confirmed </h2>
+<p>Your email address has been verified, you can now <a href="index.php">login</a> with your email and password.</p>';
+} else {
+$result = "<p class='lead'>No changes made please contact site admin,
+    if you have not confirmed your email before</p>";
+}
+}
 ?>
 <!DOCTYPE html>
 <html>

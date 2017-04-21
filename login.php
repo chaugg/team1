@@ -1,6 +1,8 @@
 <?php
-include_once 'partial/parserlogin.php';
-include_once 'partial/header.php';
+include_once 'resource/session.php';
+include_once 'resource/utilities.php';
+include_once 'resource/Database.php';
+
 
 if(isset($_POST['loginBtn'])){
     $form_errors = array();
@@ -17,15 +19,19 @@ if(isset($_POST['loginBtn'])){
            $id = $row['id'];
            $hashed_password = $row['password'];
            $username = $row['username'];
-
-           if(password_verify($password, $hashed_password)){
+           $activated = $row['activated'];
+           if ($activated === "0") {
+             echo "Please activate your account";
+           }
+           else
+           {if(password_verify($password, $hashed_password)){
                $_SESSION['id'] = $id;
                $_SESSION['username'] = $username;
                header("location: home.php");
            }else{
                $result = "<p style='padding: 20px; color: red; border: 1px solid gray;'> Invalid username or password</p>";
            }
-       }
+       }}
 
     }else{
         if(count($form_errors) == 1){
