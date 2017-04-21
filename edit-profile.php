@@ -1,4 +1,7 @@
-<?php include_once 'partial/parseProfile.php' ?>
+<?php
+include_once 'partial/parseProfile.php';
+include_once 'resource/session.php';
+?>
 
 <h2>Edit profile</h2>
 <div class="">
@@ -10,12 +13,10 @@
   } ?>
 </div>
 
-<?php if(!isset($_SESSION['username'])): {
-  # code...
-} ?>
+<?php if(!isset($_SESSION['username'])): ?>
 <p>please login</p>
 <?php else: ?>
-  <form class="" action="" method="post">
+  <form method="post">
     <div class="form-group">
         <label for="emailField">Email</label>
         <input type="text" name="email" value="<?php if(isset($email)) echo $email; ?>">
