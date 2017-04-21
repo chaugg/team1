@@ -52,6 +52,10 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
   $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
   $form_errors = array_merge($form_errors, check_email($_POST));
 
+  isset($_FILES['avatar']['name']) ? $avatar = $_FILES['avatar']['name'] : $avatar = null;
+  if($avatar != null){
+    $form_errors = array_merge($form_errors, isValidImage($avatar));
+  }
 
   $email=$_POST['email'];
   $username=$_POST['username'];

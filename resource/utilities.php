@@ -97,6 +97,25 @@ function checkDuplicateEmail($value, $db){
   return false;
 }
   catch(PDOException $ex){
+echo "error";
+  }
+}
+
+function isValidImage($file){
+  $form_errors = array();
+  $part = explode(".", $file);
+  $extension = end($part);
+  switch (strtolower($extension)) {
+    case 'jpg':
+
+
+    case 'gif':
+
+    case 'png':
+
+    return $form_errors;
 
   }
+    $form_errors[] = $extension . " is not a valid extension";
+    return $form_errors;
 }

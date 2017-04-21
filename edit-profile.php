@@ -16,7 +16,7 @@ include_once 'resource/session.php';
 <?php if(!isset($_SESSION['username'])): ?>
 <p>please login</p>
 <?php else: ?>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="emailField">Email</label>
         <input type="text" name="email" value="<?php if(isset($email)) echo $email; ?>">
@@ -25,6 +25,11 @@ include_once 'resource/session.php';
     <div class="form-group">
         <label for="usernameField">Username</label>
         <input type="text" name="username" value="<?php if(isset($username)) echo $username; ?>">
+    </div>
+
+    <div class="form-group">
+        <label for="fileField">Avatar</label>
+        <input type="file" name="avatar" value="">
     </div>
     <input type="hidden" name="hidden_id" value="<?php if(isset($id)) echo $id; ?>">
     <button type="submit" name="updateProfileBtn">Update profle</button>

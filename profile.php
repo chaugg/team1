@@ -7,8 +7,8 @@ include_once 'partial/parseProfile.php';
    <h1> Profile</h1>
      <?php if (!isset($_SESSION['username'])):  ?>
        <p> Your are not authorized to view this page </p>
-     <?php else: ?>
-  
+  <?php else: ?>
+
   <img src="<?php if(isset($profile_picture)) echo $profile_picture; ?>" alt="" width="200px" height="200px">
        <table>
          <tr>
