@@ -3,11 +3,13 @@ include_once 'resource/session.php';
 include_once 'partial/parseProfile.php';
  ?>
 
- <div class="container">
-   <h1> Profile</h1
+
+   <h1> Profile</h1>
      <?php if (!isset($_SESSION['username'])):  ?>
        <p> Your are not authorized to view this page </p>
      <?php else: ?>
+  
+  <img src="<?php if(isset($profile_picture)) echo $profile_picture; ?>" alt="" width="200px" height="200px">
        <table>
          <tr>
            <th>Username</th> <td> <?php if(isset($username)) echo $username; ?> </td>
@@ -27,5 +29,3 @@ include_once 'partial/parseProfile.php';
          </tr>
        </table>
      <?php endif ?>
-
-  </div
