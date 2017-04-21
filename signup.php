@@ -10,11 +10,18 @@ if(isset($_POST['signupBtn'])){
     $fields_to_check_length = array('username' => 4, 'password' => 6);
     $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
     $form_errors = array_merge($form_errors, check_email($_POST));
-    if(empty($form_errors)){
-        $email = $_POST['email'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    if(checkDuplicateUsername($username, $db)){
+      echo "Username taken!";
+    }
+    if(checkDuplicateEmail($email, $db)){
+      echo "Email taken!";
+    }
+    else if(empty($form_errors)){
+
         try{
             $sqlInsert = "INSERT INTO users (username, email, password, join_date)
               VALUES (:username, :email, :password, now())";
@@ -24,7 +31,9 @@ if(isset($_POST['signupBtn'])){
                 $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Registration Successful</p>";
             }
         }catch (PDOException $ex){
-            $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ".$ex->getMessage()."</p>";
+          // $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> .$ex->getMessage()</p>";
+           $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ".$ex->getMessage()."</p>";
+            // $result = flashMessage("error, please try again!" .$ex->getMessage());
         }
     }
     else{

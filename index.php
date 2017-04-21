@@ -22,8 +22,10 @@ if(isset($_POST['loginBtn'])){
            if(password_verify($password, $hashed_password)){
                $_SESSION['id'] = $id;
                $_SESSION['username'] = $username;
-               header("location: home.php");
-           }else{
+
+                header("location: home.php");
+           }
+            else{
                $result = "<p style='padding: 20px; color: red; border: 1px solid gray;'> Invalid username or password</p>";
            }
        }
@@ -48,7 +50,10 @@ if(isset($_POST['loginBtn'])){
 <link rel="stylesheet" href="css/ionicons.min.css"> <!-- Prevent lost connection -->
 <link rel="stylesheet" href="css/normalize.min.css">
 <link rel="stylesheet" href="css/style.css">
+
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<script src="js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 <!--
 ────────────────────────────────────────────────────────────────────────────────
 ─██████████████─██████████████─██████████████─██████──────────██████─████████───
@@ -258,6 +263,7 @@ if(isset($_POST['loginBtn'])){
                 <label class="icon-label" for="password"><i class="icon ion-key"></i></label>
             </div>
 
+            <input type="checkbox" name="remember" value="yes">
             <input type="submit" value="Sign In" class="button button-red full-width" name="loginBtn">
 
             <p class="small"><a href="forgot_password.php">Forgot your password?</a>
@@ -275,6 +281,5 @@ if(isset($_POST['loginBtn'])){
 </div>
 
     <script src="js/index.js"></script>
-
 </body>
 </html>
