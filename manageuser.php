@@ -1,6 +1,7 @@
 <?php
 include_once 'resource/Database.php';
 include_once 'resource/utilities.php';
+include_once 'resource/session.php';
 ?>
 
 

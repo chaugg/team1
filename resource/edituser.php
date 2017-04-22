@@ -45,10 +45,10 @@
         <table class="table">
           <caption>Edit User</caption>
           <input type="hidden" name="id_user" value="<?php echo $id; ?>">
-          <tr><td>Họ tên : </td><td><input type="text" name="username" value="<?php echo $username; ?>" /></td></tr>
-          <tr><td>Địa chỉ email : </td><td><input type="text" name="email" value="<?php echo $email; ?>"/></td></tr>
+          <tr><td>Username : </td><td><input type="text" name="username" value="<?php echo $username; ?>" /></td></tr>
+          <tr><td>Email : </td><td><input type="text" name="email" value="<?php echo $email; ?>"/></td></tr>
           <tr>
-            <td>Cấp độ : </td>
+            <td>Group : </td>
             <td>
               <select name="level">
                 <option value="1" <?php echo ($level == 1)?"selected":""; ?>>Administrator</option>

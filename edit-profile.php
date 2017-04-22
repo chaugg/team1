@@ -35,4 +35,4 @@ include_once 'resource/session.php';
     <button type="submit" name="updateProfileBtn">Update profle</button>
   </form>
 <?php endif ?>
-<p>Back</p>
+<a href="profile.php">Back</a>

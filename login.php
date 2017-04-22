@@ -17,6 +17,7 @@ if(isset($_POST['loginBtn'])){
 
        while($row = $statement->fetch()){
            $id = $row['id'];
+           $level = $row['level'];
            $hashed_password = $row['password'];
            $username = $row['username'];
            $activated = $row['activated'];
@@ -27,7 +28,11 @@ if(isset($_POST['loginBtn'])){
            {if(password_verify($password, $hashed_password)){
                $_SESSION['id'] = $id;
                $_SESSION['username'] = $username;
-               header("location: home.php");
+               if ($level === "1"){
+               header("location: manageuser.php");}
+               else{
+                 header("location: home.php");
+               }
            }else{
                $result = "<p style='padding: 20px; color: red; border: 1px solid gray;'> Invalid username or password</p>";
            }
