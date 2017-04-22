@@ -24,8 +24,8 @@ if(isset($_POST['signupBtn'])){
     else if(empty($form_errors)){
 
         try{
-            $sqlInsert = "INSERT INTO users (username, email, password, join_date)
-              VALUES (:username, :email, :password, now())";
+            $sqlInsert = "INSERT INTO users (username, email, password, join_date, level)
+              VALUES (:username, :email, :password, now(), 0)";
             $statement = $db->prepare($sqlInsert);
             $statement->execute(array(':username' => $username, ':email' => $email, ':password' => $hashed_password));
             if($statement->rowCount() == 1){
