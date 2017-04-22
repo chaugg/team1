@@ -2,7 +2,7 @@
 
 $username = 'root';
 $dsn = 'mysql:host=localhost; dbname=register';
-$password = 'chaugiang26';
+$password = '';
 
 try{
   $db = new PDO('mysql:host=localhost; dbname=register', 'root', '');
