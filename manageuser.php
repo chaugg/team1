@@ -13,7 +13,6 @@ include_once 'resource/utilities.php';
   <script src="js/boostrap.min.js" charset="utf-8"></script>
   <script src="js/jquerry-3.2.1.min.js" charset="utf-8"></script>
 </head>
-<body>
   <body>
     <?php
     // $stmt = $db->prepare("SELECT username FROM users");
@@ -65,7 +64,7 @@ include_once 'resource/utilities.php';
                     }
                     ?>
                   </td>
-                  <td><a href="chinh-sua-thanh-vien.php?id=<?php echo $id; ?>">Sửa</a> <a href="xoa-thanh-vien.php?id=<?php echo $id; ?>">Xóa</a></td>
+                  <td><a href="resource/deleteuser.php?id=<?php echo $id; ?>">Delete</a> <a href="resource/edituser.php?id=<?php echo $id; ?>">Edit</a></td>
                 </tr>
                 <?php
               }
