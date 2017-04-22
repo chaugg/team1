@@ -19,6 +19,8 @@
         $sqlQuery = "UPDATE users SET username = '$username', email = '$email', level = '$level' WHERE id = $id_user";
         $statement = $db->prepare($sqlQuery);
         $statement->execute(array());
+        echo "Success";
+        header("location: ../manageuser.php");
       }
 
       $id = "";
@@ -41,7 +43,7 @@
       <h3> Member info</h3>
       <form method="POST" name="fr_update">
         <table class="table">
-          <caption>List</caption>
+          <caption>Edit User</caption>
           <input type="hidden" name="id_user" value="<?php echo $id; ?>">
           <tr><td>Họ tên : </td><td><input type="text" name="username" value="<?php echo $username; ?>" /></td></tr>
           <tr><td>Địa chỉ email : </td><td><input type="text" name="email" value="<?php echo $email; ?>"/></td></tr>
@@ -50,7 +52,7 @@
             <td>
               <select name="level">
                 <option value="1" <?php echo ($level == 1)?"selected":""; ?>>Administrator</option>
-                <option value="2" <?php echo ($level == 2)?"selected":""; ?>>Member</option>
+                <option value="0" <?php echo ($level == 2)?"selected":""; ?>>Member</option>
               </select>
             </td>
           </tr>
