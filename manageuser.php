@@ -4,6 +4,17 @@ include_once 'resource/utilities.php';
 include_once 'resource/session.php';
 ?>
 
+<!-- <?php if(!isset($_SESSION['username'])): ?>
+  <P class="userbar">You are currently not signin <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </P>
+<?php else: ?>
+  <p class="userbar">Welcome back<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
+  <a href="note/ax.php"> Message</a> </p>
+<?php endif ?> -->
+
+  <?php if (!isset($_SESSION['username'])):  ?>
+  <p> Your are not authorized to view this page </p>
+    <?php else: ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -78,3 +89,5 @@ include_once 'resource/session.php';
 
     </body>
     </html>
+
+    <?php endif ?>

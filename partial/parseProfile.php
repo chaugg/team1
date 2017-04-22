@@ -66,13 +66,10 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
       $sqlUpdate = "UPDATE users SET username =:username, email =:email WHERE id =:id";
       $statement = $db->prepare($sqlUpdate);
       $statement->execute(array(':username' => $username, ':email' => $email, ':id' => $hidden_id));
-      $temp = explode(".", $_FILES["avatar"]["name"]);
-      $extension = end($temp);
-      $path="uploads";
-      $filename = basename($_FILES["avatar"]["name"]);
-      $filename = $username . strrchr($filename, '.') . $extension;
-      $filename = $extension;
-      move_uploaded_file($_FILES["avatar"]["tmp_name"],$path . $filename);
+
+      $newname= $username . ".png";
+      var_dump($newname);
+      move_uploaded_file($_FILES["avatar"]["tmp_name"], "upload/" . $newname);
       if($statement->rowCount() == 1){
         $result = "<script type=\"text/javascript\">
         swal(\"Updated!\", \"Profile update successfully.\",\"success\");</script>";

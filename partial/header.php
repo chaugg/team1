@@ -1,5 +1,5 @@
 <?php
-include_once 'partial/session.php';
+include_once 'resource/session.php';
 
 ?>
 <!DOCTYPE html>
@@ -13,6 +13,7 @@ include_once 'partial/session.php';
 <link rel="stylesheet" href="css/ionicons.min.css"> <!-- Prevent lost connection -->
 <link rel="stylesheet" href="css/normalize.min.css">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <script src="js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
@@ -53,21 +54,10 @@ include_once 'partial/session.php';
             <ul class="inline-list padded-list">
                     <li><a href="#" class="ion-social-octocat"> Wiki</a></li>
 
-                    <li><a href="signup.php" class="ion-ios-paw"> Register</a></li>
-
-                    <li><a href="../form/login.php" class="icon ion-android-exit button button-red button-login toggle-hide ">Sign In</a></li>
+                    <li><a href="signup.php" class="ion-ios-paw"> I dont know</a></li>
+                    <li><a href="logout.php" class="icon ion-android-exit button button-red button-login toggle-hide ">Logout</a></li>
             </ul>
         </nav>
     </div>
 
-    <div class="header-image">
-        <div class="header-image-text">
-            <h2 class="header-title">Learn with Us</h2>
-            <p class="header-description">Learn Nihongo in your luch</p>
-            <a class="button button-yellow" href="../main/index.php">Started</a><a class="button button-blue" href="#">Get help</a>
-        </div>
-    </div>
-    <script type="text/javascript">
-
-    </script>
 </header>

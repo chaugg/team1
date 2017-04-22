@@ -34,7 +34,7 @@ include_once 'resource/session.php';
 
 
 </head>
-<div class="userbar">
+<!-- <div class="userbar">
   <?php if(!isset($_SESSION['username'])): ?>
     <P class="userbar">You are currently not signin <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a> </P>
   <?php else: ?>
@@ -42,7 +42,7 @@ include_once 'resource/session.php';
     <a href="note/ax.php"> Message</a> </p>
   <?php endif ?>
 
-</div>
+</div> -->
 
 <body>
   <header class="site-header" role="banner">
