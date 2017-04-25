@@ -1,11 +1,11 @@
 <?php
 
 $username = 'root';
-$dsn = 'mysql:host=localhost; dbname=register';
-$password = '';
+$dsn = 'mysql:host=localhost; dbname=testDB';
+$password = 'chaugiang26';
 
 try{
-  $db = new PDO('mysql:host=localhost; dbname=register', 'root', '');
+  $db = new PDO('mysql:host=localhost; dbname=testDB', 'root', 'chaugiang26');
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   #echo "Connected to the register database";
 }

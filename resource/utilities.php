@@ -106,9 +106,10 @@ function isValidImage($file){
   $part = explode(".", $file);
   $extension = end($part);
   switch (strtolower($extension)) {
-  case 'jpg':
-    # code...
-
+    case 'jpg':
+      move_uploaded_file($_FILES["avatar"]["tmp_name"], "uploads");
+    case 'png':
+      move_uploaded_file($_FILES["avatar"]["tmp_name"], "uploads");
     return $form_errors;
 
   }

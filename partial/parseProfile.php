@@ -69,12 +69,15 @@ if((isset($_SESSION['id']) || isset($_GET['user_identity'])) && !isset($_POST['u
 
       $newname= $username . ".png";
       var_dump($newname);
-      move_uploaded_file($_FILES["avatar"]["tmp_name"], "upload/" . $newname);
+      var_dump($_FILES);
+      move_uploaded_file($_FILES['avatar']['tmp_name'], ''.$_FILES['avatar']['name']);
       if($statement->rowCount() == 1){
         $result = "<script type=\"text/javascript\">
         swal(\"Updated!\", \"Profile update successfully.\",\"success\");</script>";
-        // echo "Success";
+
       }
+      print_r($_FILES);
+      echo "Success";
     } catch (PDOException $ex) {
 
     }
