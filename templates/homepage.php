@@ -12,7 +12,8 @@
             <a href="?action=viewArticle&amp;articleId=<?php echo $article->id?>">
               <?php echo htmlspecialchars( $article->title )?></a>
           </h2>
-          <p class="summary"><?php echo htmlspecialchars( $article->summary )?></p>
+          <p class="summary"><?php echo htmlentities( $article->summary )?></p>
+
         </li>
 
 <?php } ?>
