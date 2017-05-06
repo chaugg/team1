@@ -19,8 +19,8 @@ $htmlString= $encode_id;?>
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
 <style media="screen">
-@import url(https://fonts.googleapis.com/css?family=Pacifico);
-@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
+/*@import url(https://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);*/
 * {
   box-sizing: border-box;
 }
@@ -370,27 +370,27 @@ body {
 <body>
   <div class="wrapper">
   <div class="wrapper_container">
-  <!-- start content -->
+  <!-- start  -->
     <div class="site-wrapper active" id="target">
       <div class="site-wrapper_left-col">
         <a href="#" class="logo">Logo</a>
         <div class="left-nav">
-          <a href="#"><i class="fa fa-home test"></i>Home</a>
-          <a href="#"><i class="fa fa-pie-chart"></i>Dashboard</a>
-          <a href="#"><i class="fa fa-user active"></i>Profile</a>
-          <a href="#"><i class="fa fa-comment"></i>Message</a>
-          <a href="#"><i class="fa fa-cog"></i>Settings</a>
+          <a href="#" id="home-link"><i class="fa fa-home test"></i>Home</a>
+          <a href="#" id="dash-link"><i class="fa fa-pie-chart"></i>Dashboard</a>
+          <a href="#" id="profile-link"><i class="fa fa-user active"></i>Profile</a>
+          <a href="#" id="mess-link"><i class="fa fa-comment"></i>Message</a>
+          <a href="#" id="set-link"><i class="fa fa-cog"></i>Settings</a>
         </div>
       </div>
       <div class="site-wrapper_top-bar">
         <a href="#" id="toggle"><i class="fa fa-bars"></i></a>
       </div>
-      <!-- inner content -->
+      <!-- inner  -->
       <div class="row">
         <div class="col-1">
           <div class="user-item">
             <div class="user-item_photo">
-              <img src="uploads/default.png" alt="myphoto" />
+              <img src="<?php if(isset($profile_picture)) echo $profile_picture; ?>">
             </div>
             <div class="user-item_info">
               <p class="name"><?php echo $_SESSION['username']; ?></p>
@@ -412,7 +412,8 @@ body {
               <div class="chat_inner">
                 <div class="chat_inner-item">
                   <div class="photo">
-                    <img src="uploads/default.png" alt="myphoto" />
+
+                    <img src="<?php if(isset($profile_picture)) echo $profile_picture; ?>">
                   </div>
                   <div class="message">
                     Hello, World!
@@ -458,6 +459,16 @@ body {
           $('#target').toggleClass('active');
         });
       });
+      $(function(){
+          $('#home-link').click(function(){
+            $( ".chat" ).fadeOut(2000);
+          });
+        });
+        $(function(){
+            $('#mess-link').click(function(){
+              $( ".chat" ).fadeIn(2000);
+            });
+          });
 
       </script>
 
